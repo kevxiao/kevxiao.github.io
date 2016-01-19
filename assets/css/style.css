@@ -55,6 +55,10 @@ a:focus {
     margin: -100px 0 0 -100px
 }
 
+.btn {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .2), 0 3px 6px rgba(0, 0, 0, .28)
+}
+
 .main-btn {
     background: #e91e63;
     border-color: #e91e63;
@@ -65,7 +69,6 @@ a:focus {
 .main-btn:hover {
     background: #e91e63;
     color: #fff;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, .2), 0 3px 6px rgba(0, 0, 0, .28)
 }
 
 .line-btn {
@@ -145,7 +148,8 @@ a:focus {
     border-radius: 100%;
     width: 56px;
     height: 56px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24)
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .2), 0 3px 6px rgba(0, 0, 0, .28);
+    z-index: 100;
 }
 
 .back-to-top .mdicon {
@@ -278,7 +282,8 @@ a:focus {
     padding: 0;
     text-align: center;
     background: #4286f5;
-    width: 100%
+    width: 100%;
+    z-index: 10;
 }
 
 #banner h1 {
@@ -312,11 +317,12 @@ a:focus {
 }
 
 #banner .container .intro {
-    margin-top: 280px
+    position: relative;
 }
 
 #about {
-    background: #fff
+    background: #fff;
+    z-index: 9;
 }
 
 #about .sectionIcon {
@@ -324,6 +330,14 @@ a:focus {
     top: -66px;
     font-size: 66px;
     color: #fff
+}
+
+#skills {
+    z-index: 8;
+}
+
+section {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .2), 0 3px 6px rgba(0, 0, 0, .28)
 }
 
 section h2.heading {
@@ -355,7 +369,7 @@ section {
 
 #parallax-1 {
     padding: 0;
-    background-image: url(../images/parallax-2.jpg)
+    z-index: 5;
 }
 
 #parallax-1 .color-overlay {
@@ -364,7 +378,6 @@ section {
 
 #parallax-2 {
     padding: 50px 0;
-    background-image: url(../images/perallax.jpg)
 }
 
 .bgParallax h2.heading {
@@ -372,8 +385,42 @@ section {
     margin-bottom: 25px
 }
 
-#mywork {
-    background: 0 0
+#work {
+    background: rgba(66, 134, 245, .9);
+    z-index: 7;
+}
+
+#work h2.heading {
+    color: #fff
+}
+
+#work p {
+    color: #fff
+}
+
+#work li {
+    color: #fff;
+}
+
+#work ul {
+    list-style-type: none;
+}
+
+#projects ul {
+    list-style-type: none;
+}
+
+.position-info {
+    font-weight: bold;
+}
+
+.date-info {
+    font-style: italic;
+
+}
+
+.project-name {
+    font-weight: bold;
 }
 
 .portfolio-grid .thumbnail {
@@ -402,7 +449,7 @@ section {
 
 .portfolio-grid .hover-text {
     text-align: center;
-    padding-top: 55px
+    padding-top: 10px
 }
 
 .portfolio-grid .hover-text h5 {
@@ -446,8 +493,9 @@ section {
     color: #e91e63
 }
 
-#skills {
-    background: #fff
+#projects {
+    background: #fff;
+    z-index: 6;
 }
 
 .progress-bar-success {
@@ -471,9 +519,14 @@ section {
     resize: none
 }
 
+#contact {
+    z-index: 4;
+}
+
 #info {
     background: #343434;
-    color: #fff
+    color: #fff;
+    z-index: 3;
 }
 
 #info h4 {
