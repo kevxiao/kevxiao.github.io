@@ -21,7 +21,8 @@ h6 {
 }
 
 p {
-    color: #333
+    color: #333;
+    margin: 0;
 }
 
 a,
