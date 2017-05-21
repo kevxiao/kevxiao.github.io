@@ -170,7 +170,10 @@ a:focus {
 
 .navbar-default .navbar-toggle {
     border-color: #fff;
-    margin-top: 0
+    background-image: url("../images/menu.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .navbar-default .navbar-toggle:focus .icon-bar,
@@ -180,20 +183,13 @@ a:focus {
 
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
-    background-color: transparent;
-    border-color: #e91e63
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
-.navbar-default .navbar-collapse.in {
-    background-color: #fff
-}
-
-.navbar-default .navbar-collapse.in .navbar-nav>li>a {
-    color: #344563
-}
-
-.navbar-default .navbar-collapse.in .navbar-nav>li>a:hover {
-    color: #ef6348
+.navbar-default .navbar-collapse {
+    border-color: transparent;
+    margin-right: 0;
+    margin-left: 0;
 }
 
 .main-menu.floating-menu .navbar-toggle .icon-bar {
@@ -238,22 +234,22 @@ a:focus {
     -webkit-transition: background .5s ease-in-out
 }
 
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-collapse .navbar-nav>.active>a:focus,
+.navbar-default .navbar-collapse .navbar-nav>li>a:focus,
+.navbar-default .navbar-collapse .navbar-nav>li>a {
     color: #fff;
     font-size: 16px;
     font-weight: 300;
     padding: 7px 15px
 }
 
-.navbar-default .navbar-nav>li>a.active {
+.navbar-default .navbar-collapse .navbar-nav>li>a.active {
     color: #fca1c0
 }
 
-.navbar-default .navbar-nav>.active>a,
-.navbar-default .navbar-nav>.active>a:focus,
-.navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>li>a:focus,
-.navbar-default .navbar-nav>li>a:hover {
+.navbar-default .navbar-collapse .navbar-nav>.active>a,
+.navbar-default .navbar-collapse .navbar-nav>.active>a:hover,
+.navbar-default .navbar-collapse .navbar-nav>li>a:hover {
     background: 0 0;
     color: #ef6348
 }
@@ -261,7 +257,8 @@ a:focus {
 .main-menu.floating-menu {
     background: #3367d5
 }
-
+.main-menu.floating-menu .navbar-nav>.active>a:focus,
+.main-menu.floating-menu .navbar-nav>li>a:focus,
 .main-menu.floating-menu .navbar-nav>li>a {
     color: #fff
 }
@@ -271,9 +268,7 @@ a:focus {
 }
 
 .main-menu.floating-menu .navbar-nav>.active>a,
-.main-menu.floating-menu .navbar-nav>.active>a:focus,
 .main-menu.floating-menu .navbar-nav>.active>a:hover,
-.main-menu.floating-menu .navbar-nav>li>a:focus,
 .main-menu.floating-menu .navbar-nav>li>a:hover {
     background: 0 0;
     color: #fca1c0
@@ -290,6 +285,13 @@ a:focus {
 #banner h1 {
     font-weight: 400;
     color: #e91e63
+}
+
+#banner #self-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .2), 0 3px 6px rgba(0, 0, 0, .28)
 }
 
 #banner h2 {
@@ -311,6 +313,7 @@ a:focus {
 #banner p {
     font-size: 15px;
     font-weight: 300;
+    color: #fff
 }
 
 #banner .container {
@@ -364,7 +367,7 @@ section p {
 
 section {
     position: relative;
-    padding: 70px 0 50px;
+    padding: 70px 0;
     text-align: center
 }
 
@@ -374,11 +377,11 @@ section {
 }
 
 #parallax-1 .color-overlay {
-    padding: 50px 0
+    padding: 70px 0
 }
 
 #parallax-2 {
-    padding: 50px 0;
+    padding: 70px 0;
 }
 
 .bgParallax h2.heading {
@@ -405,10 +408,12 @@ section {
 
 #work ul {
     list-style-type: none;
+    padding-left: 0;
 }
 
 #projects ul {
     list-style-type: none;
+    padding-left: 0;
 }
 
 .position-info {
@@ -591,16 +596,6 @@ footer .design-by {
 }
 
 @media (max-width:480px) {
-    .navbar-default .navbar-toggle {
-        border: none
-    }
-    .navbar-default .navbar-toggle .icon-bar {
-        background-color: #fff
-    }
-    .navbar-default .navbar-toggle:focus,
-    .navbar-default .navbar-toggle:hover {
-        background: 0 0
-    }
     .carousel-inner .item .carousel-caption h3 {
         font-size: 36px
     }

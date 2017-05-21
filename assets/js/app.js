@@ -1,5 +1,6 @@
 function sizeBanner() {
     var e = $("html").not(".ie6").find("#banner");
+    var intro = $(".intro");
     e.css({
         "min-height": $(window).height() - 30 + "px"
     });
@@ -8,26 +9,36 @@ function sizeBanner() {
         e.css({
             "min-height": $(window).height() - 30 + "px"
         })
-    })
+    });
 
-    $(".intro").css({
-        "top": ($(".intro").parent().parent().height()/2 - $(".intro").height()/2).toString() + "px"
+    intro.css({
+        "top": (intro.parent().parent().height()/2 - intro.height()/2).toString() + "px"
     });
 }
 
 function onScroll() {
     var e = $(document).scrollTop();
-    $("#menu li a").each(function() {
+    var menu = $(".main-menu");
+    var menuItems = $("#menu").find("li a");
+    var menuHeight = menu.height() + parseInt(menu.css("padding-top")) + parseInt(menu.css("padding-bottom"));
+    menuItems.each(function() {
         var o = $(this),
             i = $(o.attr("href"));
-        i.position().top <= e && i.position().top + i.height() > e ? ($("#menu li a").removeClass("active"), o.addClass("active")) : o.removeClass("active")
-    })
+        if (i.position().top <= e + menuHeight
+            && i.position().top + i.height() + parseInt(i.css("padding-bottom")) + parseInt(i.css("padding-top")) > e + menuHeight) {
+            menuItems.removeClass("active");
+            o.addClass("active");
+        } else {
+            o.removeClass("active");
+        }
+    });
 }
 
 var num = 50;
 
 $(window).bind("scroll", function() {
-    jQuery(window).scrollTop() > num ? jQuery(".main-menu").addClass("floating-menu") : jQuery(".main-menu").removeClass("floating-menu")
+    var menu = $(".main-menu");
+    $(window).scrollTop() > num ? menu.addClass("floating-menu") : menu.removeClass("floating-menu")
 });
 
 sizeBanner();
@@ -51,13 +62,13 @@ $("div.bgParallax").each(function() {
         var o = -($(window).scrollTop() / e.data("speed")),
             i = "50% " + o + "px";
         e.css("background-position", i)
-    })
+    });
 });
 
 $(window).load(function() {
     $(".hcaption").hcaptions({
         effect: "fade"
-    })
+    });
 });
 
 $(document).ready(function() {
@@ -65,25 +76,29 @@ $(document).ready(function() {
         effect: "fade",
         theme: "default",
         keyboardNav: !0
-    })
+    });
 });
 
 $(".carousel").carousel({
     interval: 3e3
 });
 
-jQuery(document).ready(function() {
-    var e = 220,
-        o = 500;
-    jQuery(window).scroll(function() {
-        jQuery(this).scrollTop() > e ? jQuery(".back-to-top").fadeIn(o) : jQuery(".back-to-top").fadeOut(o)
+$(document).ready(function() {
+    var topBound = $("#banner").height() / 2,
+        animTime = 500;
+    $(window).scroll(function() {
+        var backToTop = $(".back-to-top");
+        $(window).scrollTop() > topBound ? backToTop.fadeIn(animTime) : backToTop.fadeOut(animTime)
     });
 
-    jQuery(".back-to-top").click(function(e) {
-        return e.preventDefault(), jQuery("html, body").animate({
+    $(".back-to-top").click(function(e) {
+        e.preventDefault();
+        $("html, body").animate({
             scrollTop: 0
-        }, o), !1;
-    })
+        }, animTime);
+        return true;
+    });
+    onScroll();
 });
 
 $("#contact-form").bootstrapValidator({
@@ -128,5 +143,5 @@ $(window).load(function() {
 
     $("body").delay(350).css({
         overflow: "visible"
-    })
+    });
 });
